@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vyom's Gaming Hub</title>
+    <meta
+      name="description"
+      content="A premium indie-style gaming hub featuring solo, local, and online multiplayer experiences by Vyom Mehta."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Sora", "ui-sans-serif", "system-ui", "sans-serif"]
+            },
+            boxShadow: {
+              glow: "0 0 40px rgba(96, 165, 250, 0.22)",
+              neon: "0 0 25px rgba(45, 212, 191, 0.2)"
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-[#050816] text-slate-100 antialiased">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+    <div
+      id="loading-screen"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-[#050816]/95 transition-opacity duration-700"
+    >
+      <div class="text-center">
+        <div class="loader-ring mx-auto mb-6"></div>
+        <p class="text-sm uppercase tracking-[0.5em] text-slate-300">Loading hub</p>
+      </div>
+    </div>
+
+    <header class="relative overflow-hidden">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
+        <div class="flex items-center gap-3">
+          <div class="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/10 shadow-glow backdrop-blur-xl">
+            <span class="text-lg font-extrabold text-cyan-300">V</span>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.35em] text-slate-400">Premium Arcade</p>
+            <h1 class="text-lg font-semibold text-white">Vyom's Gaming Hub</h1>
+          </div>
+        </div>
+        <a
+          href="#games"
+          class="hidden rounded-full border border-cyan-400/40 bg-cyan-400/10 px-5 py-2 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-300/20 hover:text-white md:inline-flex"
+        >
+          Browse Games
+        </a>
+      </nav>
+
+      <section class="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:pb-24 lg:pt-10">
+        <div class="hero-card relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-8 shadow-2xl backdrop-blur-2xl md:p-12">
+          <div class="hero-glow"></div>
+          <p class="relative mb-5 inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-cyan-200">
+            Experimental Game Collection
+          </p>
+          <h2 class="relative max-w-3xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
+            Vyom's Gaming Hub
+          </h2>
+          <p class="relative mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+            A collection of experimental games — from classics to real-time multiplayer systems
+          </p>
+
+          <div class="relative mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="#games"
+              class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 px-7 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:scale-[1.02] hover:shadow-[0_12px_35px_rgba(56,189,248,0.32)]"
+            >
+              Play Now
+            </a>
+            <a
+              href="#discover"
+              class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/10"
+            >
+              Explore Categories
+            </a>
+          </div>
+
+          <div class="relative mt-10 grid gap-4 md:grid-cols-3">
+            <div class="stat-panel">
+              <span class="stat-label">Games</span>
+              <strong class="stat-value">10</strong>
+            </div>
+            <div class="stat-panel">
+              <span class="stat-label">Modes</span>
+              <strong class="stat-value">3</strong>
+            </div>
+            <div class="stat-panel">
+              <span class="stat-label">Style</span>
+              <strong class="stat-value">Premium</strong>
+            </div>
+          </div>
+        </div>
+
+        <aside class="dashboard-shell rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl backdrop-blur-2xl">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Hub Control</p>
+          <div class="space-y-4">
+            <div class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
+              <label for="search" class="mb-2 block text-sm font-medium text-slate-300">Search games</label>
+              <div class="relative">
+                <input
+                  id="search"
+                  type="search"
+                  placeholder="Search by title or vibe"
+                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 pr-11 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                />
+                <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-500">⌕</span>
+              </div>
+            </div>
+
+            <div id="discover" class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
+              <div class="mb-3 flex items-center justify-between">
+                <p class="text-sm font-medium text-slate-300">Filter by mode</p>
+                <button
+                  id="reset-filters"
+                  class="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300 transition hover:text-cyan-200"
+                >
+                  Reset
+                </button>
+              </div>
+              <div class="flex flex-wrap gap-3" id="filter-chips">
+                <button class="filter-chip active" data-filter="All">All</button>
+                <button class="filter-chip" data-filter="Solo">Solo</button>
+                <button class="filter-chip" data-filter="Local">Local</button>
+                <button class="filter-chip" data-filter="Online">Online</button>
+              </div>
+            </div>
+
+            <div class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
+              <p class="text-sm font-medium text-slate-300">Platform Mood</p>
+              <div class="mt-4 space-y-3">
+                <div class="mood-row">
+                  <span>Solo</span>
+                  <div class="mood-meter solo-meter"></div>
+                </div>
+                <div class="mood-row">
+                  <span>Pass &amp; Play</span>
+                  <div class="mood-meter local-meter"></div>
+                </div>
+                <div class="mood-row">
+                  <span>Play Online</span>
+                  <div class="mood-meter online-meter"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main id="games" class="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
+      <section class="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-slate-500">Curated categories</p>
+          <h3 class="mt-2 text-3xl font-bold text-white">Choose your mode and jump in</h3>
+        </div>
+        <p id="results-count" class="text-sm text-slate-400">Showing all 10 games</p>
+      </section>
+
+      <div id="sections-container" class="space-y-10"></div>
+
+      <div
+        id="empty-state"
+        class="hidden rounded-[2rem] border border-dashed border-white/10 bg-white/5 px-8 py-16 text-center backdrop-blur-xl"
+      >
+        <p class="text-2xl font-semibold text-white">No games matched that search.</p>
+        <p class="mt-3 text-sm text-slate-400">Try another keyword or reset the mode filter to explore the full hub.</p>
+      </div>
+    </main>
+
+    <footer class="border-t border-white/10 bg-slate-950/40">
+      <div class="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-8 text-sm text-slate-400 md:flex-row md:items-center md:justify-between lg:px-10">
+        <p>Built by Vyom Mehta</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="footer-link">GitHub</a>
+          <a href="#" class="footer-link">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <template id="section-template">
+      <section class="category-shell">
+        <div class="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="category-kicker"></p>
+            <h4 class="category-title"></h4>
+          </div>
+          <p class="category-copy"></p>
+        </div>
+        <div class="card-rail-wrapper">
+          <div class="card-rail"></div>
+        </div>
+      </section>
+    </template>
+
+    <template id="card-template">
+      <article class="game-card">
+        <div class="card-topline">
+          <span class="tag-badge"></span>
+          <span class="game-index"></span>
+        </div>
+        <h5 class="game-title"></h5>
+        <p class="game-description"></p>
+        <div class="mt-auto flex items-center justify-between gap-4">
+          <span class="game-genre"></span>
+          <a class="play-button" target="_blank" rel="noreferrer noopener">Play</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
