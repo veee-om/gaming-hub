@@ -58,16 +58,11 @@
             <h1 class="sleek-brand text-lg font-semibold text-white">Vyom's Gaming Hub</h1>
           </div>
         </div>
-        <a
-          href="#games"
-          class="hidden rounded-full border border-cyan-400/40 bg-cyan-400/10 px-5 py-2 text-sm font-semibold text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-300/20 hover:text-white md:inline-flex"
-        >
-          Browse Games
-        </a>
+        <a href="#games" class="nav-link hidden md:inline-flex">Browse</a>
       </nav>
 
-      <section class="mx-auto grid max-w-7xl gap-6 px-4 pb-14 pt-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:pb-20 lg:pt-6">
-        <div class="hero-card relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl backdrop-blur-2xl md:p-10">
+      <section class="mx-auto max-w-7xl px-4 pb-14 pt-4 sm:px-6 lg:px-10 lg:pb-20 lg:pt-6">
+        <div class="hero-card reveal relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl backdrop-blur-2xl md:p-10">
           <div class="hero-glow"></div>
           <p class="relative mb-4 inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-cyan-200">
             Experimental Game Collection
@@ -79,18 +74,12 @@
             A collection of experimental games — from classics to real-time multiplayer systems
           </p>
 
-          <div class="relative mt-6 flex flex-col gap-3 sm:flex-row">
+          <div class="relative mt-6">
             <a
               href="#games"
-              class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 px-6 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:scale-[1.02] hover:shadow-[0_12px_35px_rgba(56,189,248,0.32)]"
+              class="primary-button inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 px-6 py-3 text-sm font-semibold text-slate-950"
             >
               Play Now
-            </a>
-            <a
-              href="#discover"
-              class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/10"
-            >
-              Explore Categories
             </a>
           </div>
 
@@ -104,94 +93,63 @@
               <strong class="stat-value">3</strong>
             </div>
             <div class="stat-panel">
-              <span class="stat-label">Style</span>
-              <strong class="stat-value">Premium</strong>
+              <span class="stat-label">Live</span>
+              <strong class="stat-value">Ready</strong>
             </div>
           </div>
         </div>
-
-        <aside class="dashboard-shell rounded-[2rem] border border-white/10 bg-white/8 p-4 shadow-2xl backdrop-blur-2xl">
-          <div class="compact-toolbar">
-            <div class="toolbar-topline">
-              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Hub Control</p>
-              <button
-                id="reset-filters"
-                class="text-[11px] font-semibold uppercase tracking-[0.25em] text-cyan-300 transition hover:text-cyan-200"
-              >
-                Reset
-              </button>
-            </div>
-
-            <div class="toolbar-actions">
-              <div class="tool-chip">
-                <button id="search-toggle" class="tool-icon" type="button" aria-expanded="false" aria-controls="search-panel">
-                  🔍
-                </button>
-                <div id="search-panel" class="tool-panel hidden">
-                  <label for="search" class="sr-only">Search games</label>
-                  <input
-                    id="search"
-                    type="search"
-                    placeholder="Search games"
-                    class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
-                  />
-                </div>
-              </div>
-
-              <div class="tool-chip">
-                <button id="filter-toggle" class="tool-icon" type="button" aria-expanded="false" aria-controls="filter-panel">
-                  🧩
-                </button>
-                <div id="filter-panel" class="tool-panel hidden">
-                  <div class="flex flex-wrap gap-2" id="filter-chips">
-                    <button class="filter-chip active" data-filter="All">All</button>
-                    <button class="filter-chip" data-filter="Solo">Solo</button>
-                    <button class="filter-chip" data-filter="Local">Local</button>
-                    <button class="filter-chip" data-filter="Online">Online</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="discover" class="rounded-3xl border border-white/10 bg-slate-950/30 p-4">
-              <div class="mb-3 flex items-center justify-between">
-                <p class="text-sm font-medium text-slate-200">Platform Mood</p>
-                <span class="text-lg">✨</span>
-              </div>
-              <div class="space-y-3">
-                <div class="mood-row">
-                  <span>Solo 🎯</span>
-                  <div class="mood-meter solo-meter"></div>
-                </div>
-                <div class="mood-row">
-                  <span>Local 😄</span>
-                  <div class="mood-meter local-meter"></div>
-                </div>
-                <div class="mood-row">
-                  <span>Online ⚡</span>
-                  <div class="mood-meter online-meter"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
       </section>
     </header>
 
     <main id="games" class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-10">
-      <section class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <section class="reveal mb-8 flex flex-col gap-4">
         <div>
           <p class="text-xs uppercase tracking-[0.35em] text-slate-500">Curated categories</p>
           <h3 class="mt-2 text-2xl font-bold text-white sm:text-3xl">Choose your mode and jump in</h3>
         </div>
-        <p id="results-count" class="text-sm text-slate-400">Showing all 10 games</p>
+        <div class="controls-shell">
+          <div class="toolbar-actions">
+            <div class="tool-chip">
+              <button id="search-toggle" class="tool-icon" type="button" aria-expanded="false" aria-controls="search-panel">
+                🔍
+              </button>
+              <div id="search-panel" class="tool-panel hidden">
+                <label for="search" class="sr-only">Search games</label>
+                <input
+                  id="search"
+                  type="search"
+                  placeholder="Search games"
+                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                />
+              </div>
+            </div>
+
+            <div class="tool-chip">
+              <button id="filter-toggle" class="tool-icon" type="button" aria-expanded="false" aria-controls="filter-panel">
+                🧩
+              </button>
+              <div id="filter-panel" class="tool-panel hidden">
+                <div class="flex flex-wrap gap-2" id="filter-chips">
+                  <button class="filter-chip active" data-filter="All">All</button>
+                  <button class="filter-chip" data-filter="Solo">Solo</button>
+                  <button class="filter-chip" data-filter="Local">Local</button>
+                  <button class="filter-chip" data-filter="Online">Online</button>
+                </div>
+              </div>
+            </div>
+
+            <button id="reset-filters" class="reset-chip" type="button">Reset</button>
+          </div>
+
+          <p id="results-count" class="text-sm text-slate-400">Showing all 10 games</p>
+        </div>
       </section>
 
       <div id="sections-container" class="space-y-10"></div>
 
       <div
         id="empty-state"
-        class="hidden rounded-[2rem] border border-dashed border-white/10 bg-white/5 px-8 py-16 text-center backdrop-blur-xl"
+        class="reveal hidden rounded-[2rem] border border-dashed border-white/10 bg-white/5 px-8 py-16 text-center backdrop-blur-xl"
       >
         <p class="text-2xl font-semibold text-white">No games matched that search.</p>
         <p class="mt-3 text-sm text-slate-400">Try another keyword or reset the mode filter to explore the full hub.</p>

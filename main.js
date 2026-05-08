@@ -121,6 +121,7 @@ const searchToggle = document.getElementById("search-toggle");
 const filterToggle = document.getElementById("filter-toggle");
 const searchPanel = document.getElementById("search-panel");
 const filterPanel = document.getElementById("filter-panel");
+let revealObserver;
 
 let activeFilter = "All";
 
@@ -160,6 +161,7 @@ function renderSections(searchTerm = "", filter = "All") {
     const rail = sectionFragment.querySelector(".card-rail");
 
     sectionShell.classList.add(section.themeClass);
+    sectionShell.classList.add("reveal");
     kicker.textContent = section.kicker;
     title.textContent = section.title;
     description.textContent = section.description;
@@ -173,6 +175,7 @@ function renderSections(searchTerm = "", filter = "All") {
       card.querySelector(".game-title").textContent = `${game.emoji} ${game.title}`;
       card.querySelector(".game-description").textContent = game.description;
       card.querySelector(".game-genre").textContent = game.genre;
+      card.setAttribute("tabindex", "0");
 
       const playButton = card.querySelector(".play-button");
       playButton.href = game.url;
@@ -198,6 +201,7 @@ function renderSections(searchTerm = "", filter = "All") {
       : `Showing ${visibleGames} ${visibleGames === 1 ? "game" : "games"}`;
 
   emptyState.classList.toggle("hidden", visibleGames > 0);
+  setupRevealObserver();
 }
 
 function updateFilterState(nextFilter) {
@@ -227,6 +231,31 @@ function togglePanel(button, panel) {
     button.setAttribute("aria-expanded", "true");
     button.classList.add("active");
   }
+}
+
+function setupRevealObserver() {
+  if (revealObserver) {
+    revealObserver.disconnect();
+  }
+
+  const revealItems = document.querySelectorAll(".reveal");
+
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -40px 0px"
+    }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
 }
 
 searchInput.addEventListener("input", () => {
@@ -265,6 +294,8 @@ window.addEventListener("load", () => {
   window.setTimeout(() => {
     loadingScreen.classList.add("opacity-0", "pointer-events-none");
   }, 450);
+
+  setupRevealObserver();
 });
 
 renderSections();
