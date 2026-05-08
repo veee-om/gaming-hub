@@ -48,14 +48,14 @@
     </div>
 
     <header class="relative overflow-hidden">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-10">
         <div class="flex items-center gap-3">
-          <div class="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/10 shadow-glow backdrop-blur-xl">
-            <span class="text-lg font-extrabold text-cyan-300">V</span>
+          <div class="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/10 shadow-glow backdrop-blur-xl">
+            <span class="text-lg">🎮</span>
           </div>
           <div>
             <p class="text-xs uppercase tracking-[0.35em] text-slate-400">Premium Arcade</p>
-            <h1 class="text-lg font-semibold text-white">Vyom's Gaming Hub</h1>
+            <h1 class="sleek-brand text-lg font-semibold text-white">Vyom's Gaming Hub</h1>
           </div>
         </div>
         <a
@@ -66,35 +66,35 @@
         </a>
       </nav>
 
-      <section class="mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:pb-24 lg:pt-10">
-        <div class="hero-card relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-8 shadow-2xl backdrop-blur-2xl md:p-12">
+      <section class="mx-auto grid max-w-7xl gap-6 px-4 pb-14 pt-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:pb-20 lg:pt-6">
+        <div class="hero-card relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl backdrop-blur-2xl md:p-10">
           <div class="hero-glow"></div>
-          <p class="relative mb-5 inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-cyan-200">
+          <p class="relative mb-4 inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-cyan-200">
             Experimental Game Collection
           </p>
-          <h2 class="relative max-w-3xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
-            Vyom's Gaming Hub
+          <h2 class="hero-title relative max-w-3xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
+            Vyom's <span>Gaming Hub</span>
           </h2>
-          <p class="relative mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+          <p class="relative mt-4 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
             A collection of experimental games — from classics to real-time multiplayer systems
           </p>
 
-          <div class="relative mt-8 flex flex-col gap-4 sm:flex-row">
+          <div class="relative mt-6 flex flex-col gap-3 sm:flex-row">
             <a
               href="#games"
-              class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 px-7 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:scale-[1.02] hover:shadow-[0_12px_35px_rgba(56,189,248,0.32)]"
+              class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 px-6 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:scale-[1.02] hover:shadow-[0_12px_35px_rgba(56,189,248,0.32)]"
             >
               Play Now
             </a>
             <a
               href="#discover"
-              class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/10"
+              class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/10"
             >
               Explore Categories
             </a>
           </div>
 
-          <div class="relative mt-10 grid gap-4 md:grid-cols-3">
+          <div class="relative mt-8 grid grid-cols-3 gap-3">
             <div class="stat-panel">
               <span class="stat-label">Games</span>
               <strong class="stat-value">10</strong>
@@ -110,53 +110,65 @@
           </div>
         </div>
 
-        <aside class="dashboard-shell rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl backdrop-blur-2xl">
-          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Hub Control</p>
-          <div class="space-y-4">
-            <div class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
-              <label for="search" class="mb-2 block text-sm font-medium text-slate-300">Search games</label>
-              <div class="relative">
-                <input
-                  id="search"
-                  type="search"
-                  placeholder="Search by title or vibe"
-                  class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 pr-11 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
-                />
-                <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-500">⌕</span>
-              </div>
+        <aside class="dashboard-shell rounded-[2rem] border border-white/10 bg-white/8 p-4 shadow-2xl backdrop-blur-2xl">
+          <div class="compact-toolbar">
+            <div class="toolbar-topline">
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Hub Control</p>
+              <button
+                id="reset-filters"
+                class="text-[11px] font-semibold uppercase tracking-[0.25em] text-cyan-300 transition hover:text-cyan-200"
+              >
+                Reset
+              </button>
             </div>
 
-            <div id="discover" class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
-              <div class="mb-3 flex items-center justify-between">
-                <p class="text-sm font-medium text-slate-300">Filter by mode</p>
-                <button
-                  id="reset-filters"
-                  class="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300 transition hover:text-cyan-200"
-                >
-                  Reset
+            <div class="toolbar-actions">
+              <div class="tool-chip">
+                <button id="search-toggle" class="tool-icon" type="button" aria-expanded="false" aria-controls="search-panel">
+                  🔍
                 </button>
+                <div id="search-panel" class="tool-panel hidden">
+                  <label for="search" class="sr-only">Search games</label>
+                  <input
+                    id="search"
+                    type="search"
+                    placeholder="Search games"
+                    class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                  />
+                </div>
               </div>
-              <div class="flex flex-wrap gap-3" id="filter-chips">
-                <button class="filter-chip active" data-filter="All">All</button>
-                <button class="filter-chip" data-filter="Solo">Solo</button>
-                <button class="filter-chip" data-filter="Local">Local</button>
-                <button class="filter-chip" data-filter="Online">Online</button>
+
+              <div class="tool-chip">
+                <button id="filter-toggle" class="tool-icon" type="button" aria-expanded="false" aria-controls="filter-panel">
+                  🧩
+                </button>
+                <div id="filter-panel" class="tool-panel hidden">
+                  <div class="flex flex-wrap gap-2" id="filter-chips">
+                    <button class="filter-chip active" data-filter="All">All</button>
+                    <button class="filter-chip" data-filter="Solo">Solo</button>
+                    <button class="filter-chip" data-filter="Local">Local</button>
+                    <button class="filter-chip" data-filter="Online">Online</button>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="rounded-3xl border border-white/10 bg-slate-950/40 p-4">
-              <p class="text-sm font-medium text-slate-300">Platform Mood</p>
-              <div class="mt-4 space-y-3">
+            <div id="discover" class="rounded-3xl border border-white/10 bg-slate-950/30 p-4">
+              <div class="mb-3 flex items-center justify-between">
+                <p class="text-sm font-medium text-slate-200">Platform Mood</p>
+                <span class="text-lg">✨</span>
+              </div>
+              <div class="space-y-3">
                 <div class="mood-row">
-                  <span>Solo</span>
+                  <span>Solo 🎯</span>
                   <div class="mood-meter solo-meter"></div>
                 </div>
                 <div class="mood-row">
-                  <span>Pass &amp; Play</span>
+                  <span>Local 😄</span>
                   <div class="mood-meter local-meter"></div>
                 </div>
                 <div class="mood-row">
-                  <span>Play Online</span>
+                  <span>Online ⚡</span>
                   <div class="mood-meter online-meter"></div>
                 </div>
               </div>
@@ -166,11 +178,11 @@
       </section>
     </header>
 
-    <main id="games" class="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
-      <section class="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+    <main id="games" class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-10">
+      <section class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <p class="text-xs uppercase tracking-[0.35em] text-slate-500">Curated categories</p>
-          <h3 class="mt-2 text-3xl font-bold text-white">Choose your mode and jump in</h3>
+          <h3 class="mt-2 text-2xl font-bold text-white sm:text-3xl">Choose your mode and jump in</h3>
         </div>
         <p id="results-count" class="text-sm text-slate-400">Showing all 10 games</p>
       </section>

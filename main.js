@@ -7,6 +7,7 @@ const gameSections = [
     themeClass: "theme-solo",
     games: [
       {
+        emoji: "🐍",
         title: "Snake",
         url: "https://veee-om.github.io/snake/",
         tag: "Solo",
@@ -23,6 +24,7 @@ const gameSections = [
     themeClass: "theme-local",
     games: [
       {
+        emoji: "🎲",
         title: "Snake & Ladder",
         url: "https://veee-om.github.io/snake-ladder/",
         tag: "Local",
@@ -30,6 +32,7 @@ const gameSections = [
         description: "A playful digital take on the timeless board game with quick turns and momentum swings."
       },
       {
+        emoji: "👑",
         title: "Ludo",
         url: "https://veee-om.github.io/ludo/",
         tag: "Local",
@@ -37,6 +40,7 @@ const gameSections = [
         description: "Race your tokens home in a colorful local showdown with chance, timing, and tension."
       },
       {
+        emoji: "🔢",
         title: "Number Duel",
         url: "https://veee-om.github.io/number-duel/",
         tag: "Local",
@@ -44,6 +48,7 @@ const gameSections = [
         description: "A sharp two-player numbers challenge that rewards prediction, speed, and outsmarting."
       },
       {
+        emoji: "🧠",
         title: "Predict It",
         url: "https://veee-om.github.io/predict-it/",
         tag: "Local",
@@ -51,6 +56,7 @@ const gameSections = [
         description: "A light competitive guessing game built for laughs, feints, and surprising reversals."
       },
       {
+        emoji: "🏝️",
         title: "Island Game",
         url: "https://veee-om.github.io/island-game/",
         tag: "Local",
@@ -67,6 +73,7 @@ const gameSections = [
     themeClass: "theme-online",
     games: [
       {
+        emoji: "🏏",
         title: "Hand Cricket",
         url: "https://hand-cricket-ou5k.onrender.com/",
         tag: "Online",
@@ -74,6 +81,7 @@ const gameSections = [
         description: "A multiplayer spin on street cricket where every move feels like a clutch call."
       },
       {
+        emoji: "🪜",
         title: "Snake & Ladder Live",
         url: "https://saap-seedhi-live.onrender.com/",
         tag: "Online",
@@ -81,6 +89,7 @@ const gameSections = [
         description: "The classic climb-and-drop formula reimagined for synchronous online sessions."
       },
       {
+        emoji: "🌍",
         title: "GeoArena",
         url: "https://geo-arena.onrender.com/",
         tag: "Online",
@@ -88,6 +97,7 @@ const gameSections = [
         description: "A live geographic battleground built for quick thinking, map instinct, and momentum."
       },
       {
+        emoji: "🏙️",
         title: "Urban Planner",
         url: "https://urban-planner.onrender.com/",
         tag: "Online",
@@ -107,6 +117,10 @@ const emptyState = document.getElementById("empty-state");
 const resetFiltersButton = document.getElementById("reset-filters");
 const filterChips = [...document.querySelectorAll(".filter-chip")];
 const loadingScreen = document.getElementById("loading-screen");
+const searchToggle = document.getElementById("search-toggle");
+const filterToggle = document.getElementById("filter-toggle");
+const searchPanel = document.getElementById("search-panel");
+const filterPanel = document.getElementById("filter-panel");
 
 let activeFilter = "All";
 
@@ -156,7 +170,7 @@ function renderSections(searchTerm = "", filter = "All") {
 
       card.querySelector(".tag-badge").textContent = game.tag;
       card.querySelector(".game-index").textContent = `${String(index + 1).padStart(2, "0")}`;
-      card.querySelector(".game-title").textContent = game.title;
+      card.querySelector(".game-title").textContent = `${game.emoji} ${game.title}`;
       card.querySelector(".game-description").textContent = game.description;
       card.querySelector(".game-genre").textContent = game.genre;
 
@@ -196,6 +210,25 @@ function updateFilterState(nextFilter) {
   renderSections(searchInput.value, activeFilter);
 }
 
+function closePanels() {
+  [searchPanel, filterPanel].forEach((panel) => panel.classList.add("hidden"));
+  [searchToggle, filterToggle].forEach((button) => {
+    button.setAttribute("aria-expanded", "false");
+    button.classList.remove("active");
+  });
+}
+
+function togglePanel(button, panel) {
+  const willOpen = panel.classList.contains("hidden");
+  closePanels();
+
+  if (willOpen) {
+    panel.classList.remove("hidden");
+    button.setAttribute("aria-expanded", "true");
+    button.classList.add("active");
+  }
+}
+
 searchInput.addEventListener("input", () => {
   renderSections(searchInput.value, activeFilter);
 });
@@ -209,6 +242,23 @@ filterChips.forEach((chip) => {
 resetFiltersButton.addEventListener("click", () => {
   searchInput.value = "";
   updateFilterState("All");
+});
+
+searchToggle.addEventListener("click", () => {
+  togglePanel(searchToggle, searchPanel);
+  if (!searchPanel.classList.contains("hidden")) {
+    searchInput.focus();
+  }
+});
+
+filterToggle.addEventListener("click", () => {
+  togglePanel(filterToggle, filterPanel);
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".tool-chip")) {
+    closePanels();
+  }
 });
 
 window.addEventListener("load", () => {
