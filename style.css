@@ -189,6 +189,11 @@ body::before {
 
 .tool-chip {
   position: relative;
+  z-index: 1;
+}
+
+.tool-chip.open {
+  z-index: 80;
 }
 
 .controls-shell {
@@ -202,6 +207,8 @@ body::before {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
+  position: relative;
+  z-index: 50;
 }
 
 .tool-icon {
@@ -228,7 +235,7 @@ body::before {
   position: absolute;
   top: calc(100% + 0.75rem);
   left: 0;
-  z-index: 20;
+  z-index: 90;
   min-width: min(76vw, 320px);
   padding: 0.85rem;
   border-radius: 1.2rem;
@@ -527,6 +534,16 @@ body::before {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+#games > section:first-child {
+  position: relative;
+  z-index: 40;
+}
+
+#sections-container {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes spin {

@@ -220,6 +220,9 @@ function closePanels() {
     button.setAttribute("aria-expanded", "false");
     button.classList.remove("active");
   });
+  document.querySelectorAll(".tool-chip.open").forEach((chip) => {
+    chip.classList.remove("open");
+  });
 }
 
 function togglePanel(button, panel) {
@@ -230,6 +233,7 @@ function togglePanel(button, panel) {
     panel.classList.remove("hidden");
     button.setAttribute("aria-expanded", "true");
     button.classList.add("active");
+    button.closest(".tool-chip")?.classList.add("open");
   }
 }
 
