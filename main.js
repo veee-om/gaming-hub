@@ -68,6 +68,15 @@ const gameSections = [
         genre: "Tactical Adventure",
         description: "A shared-screen challenge with island-inspired strategy and room for clever moves.",
         tags: ["Strategy", "Adventure", "Multiplayer"]
+      },
+      {
+        emoji: "♟️",
+        title: "Chess",
+        url: "https://veee-om.github.io/chess/",
+        tag: "Local",
+        genre: "Classic Strategy",
+        description: "A timeless tactical duel built for thoughtful moves, long plans, and sharp turn-by-turn battles.",
+        tags: ["Strategy", "Logic", "Multiplayer"]
       }
     ]
   },

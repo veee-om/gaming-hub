@@ -444,6 +444,8 @@ body::before {
 
 .card-rail-wrapper {
   position: relative;
+  padding-top: 0.9rem;
+  margin-top: -0.9rem;
 }
 
 .card-rail {
@@ -452,7 +454,9 @@ body::before {
   grid-auto-columns: minmax(252px, 320px);
   gap: 1rem;
   overflow-x: auto;
-  padding-bottom: 0.7rem;
+  overflow-y: visible;
+  padding-top: 0.35rem;
+  padding-bottom: 0.9rem;
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
 }
