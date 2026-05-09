@@ -12,7 +12,8 @@ const gameSections = [
         url: "https://veee-om.github.io/snake/",
         tag: "Solo",
         genre: "Arcade Reflex",
-        description: "A clean solo revival of the classic snake formula built for quick focus sessions."
+        description: "A clean solo revival of the classic snake formula built for quick focus sessions.",
+        tags: ["Logic", "Reflex", "Classic"]
       }
     ]
   },
@@ -29,7 +30,8 @@ const gameSections = [
         url: "https://veee-om.github.io/snake-ladder/",
         tag: "Local",
         genre: "Board Classic",
-        description: "A playful digital take on the timeless board game with quick turns and momentum swings."
+        description: "A playful digital take on the timeless board game with quick turns and momentum swings.",
+        tags: ["Strategy", "Logic", "Multiplayer"]
       },
       {
         emoji: "👑",
@@ -37,7 +39,8 @@ const gameSections = [
         url: "https://veee-om.github.io/ludo/",
         tag: "Local",
         genre: "Family Strategy",
-        description: "Race your tokens home in a colorful local showdown with chance, timing, and tension."
+        description: "Race your tokens home in a colorful local showdown with chance, timing, and tension.",
+        tags: ["Strategy", "Multiplayer", "Classic"]
       },
       {
         emoji: "🔢",
@@ -45,7 +48,8 @@ const gameSections = [
         url: "https://veee-om.github.io/number-duel/",
         tag: "Local",
         genre: "Mind Match",
-        description: "A sharp two-player numbers challenge that rewards prediction, speed, and outsmarting."
+        description: "A sharp two-player numbers challenge that rewards prediction, speed, and outsmarting.",
+        tags: ["Logic", "Strategy", "Multiplayer"]
       },
       {
         emoji: "🧠",
@@ -53,7 +57,8 @@ const gameSections = [
         url: "https://veee-om.github.io/predict-it/",
         tag: "Local",
         genre: "Party Guessing",
-        description: "A light competitive guessing game built for laughs, feints, and surprising reversals."
+        description: "A light competitive guessing game built for laughs, feints, and surprising reversals.",
+        tags: ["Logic", "Party", "Multiplayer"]
       },
       {
         emoji: "🏝️",
@@ -61,7 +66,8 @@ const gameSections = [
         url: "https://veee-om.github.io/island-game/",
         tag: "Local",
         genre: "Tactical Adventure",
-        description: "A shared-screen challenge with island-inspired strategy and room for clever moves."
+        description: "A shared-screen challenge with island-inspired strategy and room for clever moves.",
+        tags: ["Strategy", "Adventure", "Multiplayer"]
       }
     ]
   },
@@ -78,7 +84,8 @@ const gameSections = [
         url: "https://hand-cricket-ou5k.onrender.com/",
         tag: "Online",
         genre: "Real-Time Sport",
-        description: "A multiplayer spin on street cricket where every move feels like a clutch call."
+        description: "A multiplayer spin on street cricket where every move feels like a clutch call.",
+        tags: ["Multiplayer", "Live", "Strategy"]
       },
       {
         emoji: "🪜",
@@ -86,7 +93,8 @@ const gameSections = [
         url: "https://saap-seedhi-live.onrender.com/",
         tag: "Online",
         genre: "Live Board Game",
-        description: "The classic climb-and-drop formula reimagined for synchronous online sessions."
+        description: "The classic climb-and-drop formula reimagined for synchronous online sessions.",
+        tags: ["Multiplayer", "Classic", "Live"]
       },
       {
         emoji: "🌍",
@@ -94,7 +102,8 @@ const gameSections = [
         url: "https://geo-arena.onrender.com/",
         tag: "Online",
         genre: "Competitive Worldplay",
-        description: "A live geographic battleground built for quick thinking, map instinct, and momentum."
+        description: "A live geographic battleground built for quick thinking, map instinct, and momentum.",
+        tags: ["GIS", "Multiplayer", "Strategy"]
       },
       {
         emoji: "🏙️",
@@ -102,14 +111,17 @@ const gameSections = [
         url: "https://urban-planner.onrender.com/",
         tag: "Online",
         genre: "Collaborative Strategy",
-        description: "A connected systems game where planning, coordination, and tactical choices shape the outcome."
+        description: "A connected systems game where planning, coordination, and tactical choices shape the outcome.",
+        tags: ["Strategy", "GIS", "Multiplayer"]
       }
     ]
   }
 ];
 
 const sectionsContainer = document.getElementById("sections-container");
+const featuredContainer = document.getElementById("featured-game");
 const sectionTemplate = document.getElementById("section-template");
+const featuredTemplate = document.getElementById("featured-template");
 const cardTemplate = document.getElementById("card-template");
 const searchInput = document.getElementById("search");
 const resultsCount = document.getElementById("results-count");
@@ -122,10 +134,54 @@ const filterToggle = document.getElementById("filter-toggle");
 const searchPanel = document.getElementById("search-panel");
 const filterPanel = document.getElementById("filter-panel");
 let revealObserver;
+const featuredGame = {
+  emoji: "🌍",
+  title: "GeoArena",
+  url: "https://geo-arena.onrender.com/",
+  tag: "Online",
+  genre: "Competitive Worldplay",
+  description:
+    "A live geographic battleground where fast map instinct, precision, and multiplayer pressure turn every round into a sharp competitive sprint.",
+  tags: ["GIS", "Multiplayer", "Strategy"]
+};
 
 let activeFilter = "All";
 
 const totalGames = gameSections.reduce((sum, section) => sum + section.games.length, 0);
+
+function createTagMarkup(tags = []) {
+  return tags
+    .map((tag) => `<span class="info-chip">${tag}</span>`)
+    .join("");
+}
+
+function renderFeaturedGame() {
+  const featuredFragment = featuredTemplate.content.cloneNode(true);
+  const featuredCard = featuredFragment.querySelector(".featured-game-card");
+  const liveBadge = featuredFragment.querySelector(".live-pill");
+  const modeBadge = featuredFragment.querySelector(".featured-mode");
+  const emoji = featuredFragment.querySelector(".featured-emoji");
+  const title = featuredFragment.querySelector(".featured-title");
+  const description = featuredFragment.querySelector(".featured-description");
+  const tags = featuredFragment.querySelector(".featured-tags");
+  const playButton = featuredFragment.querySelector(".featured-play-button");
+
+  featuredCard.classList.add("theme-online");
+  modeBadge.textContent = featuredGame.tag;
+  emoji.textContent = featuredGame.emoji;
+  title.textContent = featuredGame.title;
+  description.textContent = featuredGame.description;
+  tags.innerHTML = createTagMarkup(featuredGame.tags);
+  playButton.href = featuredGame.url;
+  playButton.setAttribute("aria-label", `Play ${featuredGame.title}`);
+
+  if (featuredGame.tag === "Online") {
+    liveBadge.classList.remove("hidden");
+  }
+
+  featuredContainer.innerHTML = "";
+  featuredContainer.appendChild(featuredFragment);
+}
 
 function renderSections(searchTerm = "", filter = "All") {
   const normalizedSearch = searchTerm.trim().toLowerCase();
@@ -169,17 +225,22 @@ function renderSections(searchTerm = "", filter = "All") {
     filteredGames.forEach((game, index) => {
       const cardFragment = cardTemplate.content.cloneNode(true);
       const card = cardFragment.querySelector(".game-card");
+      const liveBadge = cardFragment.querySelector(".live-pill");
 
       card.querySelector(".tag-badge").textContent = game.tag;
-      card.querySelector(".game-index").textContent = `${String(index + 1).padStart(2, "0")}`;
       card.querySelector(".game-title").textContent = `${game.emoji} ${game.title}`;
       card.querySelector(".game-description").textContent = game.description;
       card.querySelector(".game-genre").textContent = game.genre;
+      card.querySelector(".game-tags").innerHTML = createTagMarkup(game.tags);
       card.setAttribute("tabindex", "0");
 
       const playButton = card.querySelector(".play-button");
       playButton.href = game.url;
       playButton.setAttribute("aria-label", `Play ${game.title}`);
+
+      if (game.tag === "Online") {
+        liveBadge.classList.remove("hidden");
+      }
 
       card.addEventListener("mousemove", (event) => {
         const bounds = card.getBoundingClientRect();
@@ -303,3 +364,4 @@ window.addEventListener("load", () => {
 });
 
 renderSections();
+renderFeaturedGame();

@@ -61,29 +61,31 @@
         <a href="#games" class="nav-link hidden md:inline-flex">Browse</a>
       </nav>
 
-      <section class="mx-auto max-w-7xl px-4 pb-14 pt-4 sm:px-6 lg:px-10 lg:pb-20 lg:pt-6">
-        <div class="hero-card reveal relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl backdrop-blur-2xl md:p-10">
+      <section class="mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-6 lg:px-10 lg:pb-20 lg:pt-10">
+        <div class="hero-card hero-spotlight reveal relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 p-8 shadow-2xl backdrop-blur-2xl md:p-14">
           <div class="hero-glow"></div>
-          <p class="relative mb-4 inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-cyan-200">
-            Experimental Game Collection
-          </p>
-          <h2 class="hero-title relative max-w-3xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
-            Vyom's <span>Gaming Hub</span>
-          </h2>
-          <p class="relative mt-4 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
-            A collection of experimental games — from classics to real-time multiplayer systems
-          </p>
+          <div class="hero-copy relative mx-auto max-w-4xl text-center">
+            <p class="hero-kicker mb-4 inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-cyan-200">
+              Experimental Game Collection
+            </p>
+            <h2 class="hero-title text-4xl font-extrabold leading-tight text-white md:text-6xl">
+              Vyom’s <span>Gaming Hub 🎮</span>
+            </h2>
+            <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-300 md:text-lg">
+              Experimental games — from classics to real-time multiplayer systems
+            </p>
+          </div>
 
-          <div class="relative mt-6">
+          <div class="relative mt-8 flex justify-center">
             <a
               href="#games"
               class="primary-button inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 px-6 py-3 text-sm font-semibold text-slate-950"
             >
-              Play Now
+              Explore Games
             </a>
           </div>
 
-          <div class="relative mt-8 grid grid-cols-3 gap-3">
+          <div class="relative mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-3">
             <div class="stat-panel">
               <span class="stat-label">Games</span>
               <strong class="stat-value">10</strong>
@@ -102,6 +104,16 @@
     </header>
 
     <main id="games" class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-10">
+      <section class="featured-shell reveal mb-12">
+        <div class="mb-5 flex items-center justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.35em] text-slate-500">Spotlight</p>
+            <h3 class="mt-2 text-2xl font-bold text-white sm:text-3xl">⭐ Featured Game</h3>
+          </div>
+        </div>
+        <div id="featured-game" class="featured-card"></div>
+      </section>
+
       <section class="reveal mb-8 flex flex-col gap-4">
         <div>
           <p class="text-xs uppercase tracking-[0.35em] text-slate-500">Curated categories</p>
@@ -181,14 +193,36 @@
       </section>
     </template>
 
+    <template id="featured-template">
+      <article class="featured-game-card">
+        <div class="featured-badge-row">
+          <span class="tag-badge featured-mode"></span>
+          <span class="live-pill hidden">🔴 Live Multiplayer</span>
+        </div>
+        <div class="featured-grid">
+          <div>
+            <div class="featured-emoji"></div>
+            <h4 class="featured-title"></h4>
+            <p class="featured-description"></p>
+            <div class="featured-tags"></div>
+          </div>
+          <div class="featured-action-wrap">
+            <span class="featured-mini-copy">Handpicked highlight</span>
+            <a class="play-button featured-play-button" target="_blank" rel="noreferrer noopener">Play Now</a>
+          </div>
+        </div>
+      </article>
+    </template>
+
     <template id="card-template">
       <article class="game-card">
         <div class="card-topline">
           <span class="tag-badge"></span>
-          <span class="game-index"></span>
+          <span class="live-pill hidden">🔴 Live Multiplayer</span>
         </div>
         <h5 class="game-title"></h5>
         <p class="game-description"></p>
+        <div class="game-tags"></div>
         <div class="mt-auto flex items-center justify-between gap-4">
           <span class="game-genre"></span>
           <a class="play-button" target="_blank" rel="noreferrer noopener">Play</a>
