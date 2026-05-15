@@ -77,6 +77,15 @@ const gameSections = [
         genre: "Classic Strategy",
         description: "A timeless tactical duel built for thoughtful moves, long plans, and sharp turn-by-turn battles.",
         tags: ["Strategy", "Logic", "Multiplayer"]
+      },
+      {
+        emoji: "⚛️",
+        title: "Chain Reaction",
+        url: "https://veee-om.github.io/chain-reaction/",
+        tag: "Local",
+        genre: "Tactical Logic",
+        description: "A volatile board battle where every move can trigger cascading turns, reversals, and clever area control.",
+        tags: ["Strategy", "Logic", "Multiplayer"]
       }
     ]
   },
@@ -134,6 +143,7 @@ const featuredTemplate = document.getElementById("featured-template");
 const cardTemplate = document.getElementById("card-template");
 const searchInput = document.getElementById("search");
 const resultsCount = document.getElementById("results-count");
+const gamesTotal = document.getElementById("games-total");
 const emptyState = document.getElementById("empty-state");
 const resetFiltersButton = document.getElementById("reset-filters");
 const filterChips = [...document.querySelectorAll(".filter-chip")];
@@ -157,6 +167,7 @@ const featuredGame = {
 let activeFilter = "All";
 
 const totalGames = gameSections.reduce((sum, section) => sum + section.games.length, 0);
+gamesTotal.textContent = totalGames;
 
 function createTagMarkup(tags = []) {
   return tags
